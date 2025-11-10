@@ -16,12 +16,14 @@ export default function Hero({ productModel = '' }) {
   const cursorYSpring = useSpring(cursorY, springConfig)
 
   useEffect(() => {
-    // Only attach mousemove on devices with a fine pointer (mouse/trackpad).
-    // This avoids unnecessary listeners on touch devices and prevents the
-    // custom cursor from trying to track touches.
-    if (typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(pointer: fine)').matches) {
-      return
-    }
+    // Attach mousemove listener on large screens (desktop) or when the
+    // device reports a fine pointer. Some laptops/tablets report different
+    // pointer capabilities, so check both window width and matchMedia.
+    if (typeof window === 'undefined') return
+
+    const isLargeScreen = window.innerWidth >= 1024
+    const hasFinePointer = window.matchMedia ? window.matchMedia('(pointer: fine)').matches : false
+    if (!isLargeScreen && !hasFinePointer) return
 
     const handleMouse = (e) => {
       cursorX.set(e.clientX - 16)
