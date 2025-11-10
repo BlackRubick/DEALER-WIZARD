@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #000000;
+  --primary: #E63946;
+  --primary-dark: #C1121F;
+  --dark-gray: #1A1A1A;
+  --muted: #F8F9FA;
+}
+
+html, body, #root{ height:100%; }
+
+html{ scroll-behavior: smooth; }
+
+/* small helper for ripple-like button */
+.btn-ripple{ position: relative; overflow: hidden; }
+.btn-ripple span.ripple{ position: absolute; border-radius: 50%; transform: scale(0); animation: ripple 600ms linear; background: rgba(255,255,255,0.2); }
+@keyframes ripple{ to{ transform: scale(4); opacity: 0; } }
