@@ -29,7 +29,7 @@ export default function Hero({ productModel = '' }) {
   }, [])
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[#000000]">
+  <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#000000]">
       {/* Custom Cursor */}
       <motion.div
         className="fixed w-8 h-8 border-2 border-[#E63946] rounded-full pointer-events-none z-50 mix-blend-difference"
@@ -75,7 +75,7 @@ export default function Hero({ productModel = '' }) {
 
       {/* Glowing Orbs with Blur */}
       <motion.div 
-        className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full"
+        className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full hidden md:block"
         style={{
           background: 'radial-gradient(circle, #E63946 0%, transparent 70%)',
           filter: 'blur(80px)',
@@ -89,7 +89,7 @@ export default function Hero({ productModel = '' }) {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div 
-        className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] rounded-full"
+        className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] rounded-full hidden md:block"
         style={{
           background: 'radial-gradient(circle, #C1121F 0%, transparent 70%)',
           filter: 'blur(100px)',
@@ -104,10 +104,10 @@ export default function Hero({ productModel = '' }) {
       />
 
       {/* Particles */}
-      {[...Array(30)].map((_, i) => (
+      {[...Array(12)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-[#E63946] rounded-full"
+          className="hidden sm:block absolute w-1 h-1 bg-[#E63946] rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -129,7 +129,7 @@ export default function Hero({ productModel = '' }) {
       {/* Main Content */}
       <motion.div 
         style={{ opacity, scale, y: y2 }}
-        className="relative z-10 text-center px-6 max-w-6xl"
+        className="relative z-10 text-center px-4 sm:px-6 max-w-6xl"
       >
         {/* Glitch Text Effect */}
         <motion.div
@@ -139,7 +139,7 @@ export default function Hero({ productModel = '' }) {
           className="relative mb-8"
         >
           <motion.h1 
-            className="text-7xl md:text-9xl lg:text-[12rem] font-black tracking-tighter leading-none"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-[12rem] font-black tracking-tighter leading-none"
             style={{
               x: mousePosition.x * 2,
               y: mousePosition.y * 2
@@ -205,14 +205,14 @@ export default function Hero({ productModel = '' }) {
         </motion.div>
 
         {/* Tagline with Holographic Effect */}
-        <motion.div
+          <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
           className="mb-12"
         >
           <motion.p 
-            className="text-3xl md:text-5xl font-bold mb-2"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-2"
             style={{
               background: 'linear-gradient(90deg, #E63946, #FFFFFF, #E63946)',
               backgroundSize: '200% auto',
@@ -238,7 +238,7 @@ export default function Hero({ productModel = '' }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="grid grid-cols-3 gap-6 md:gap-12 mb-12 max-w-4xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-12 mb-12 max-w-4xl mx-auto"
         >
           {[
             { value: '500+', label: 'MODELOS', delay: 0 },
@@ -294,7 +294,7 @@ export default function Hero({ productModel = '' }) {
             whileTap={{ scale: 0.95 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#E63946] to-[#C1121F] blur-xl opacity-50 group-hover:opacity-100 transition-opacity" />
-            <div className="relative bg-[#E63946] text-[#000000] font-bold px-10 py-5 clip-corner-btn border-2 border-[#E63946] hover:border-[#FFFFFF] transition-all">
+            <div className="relative bg-[#E63946] text-[#000000] font-bold px-6 py-3 sm:px-10 sm:py-5 clip-corner-btn border-2 border-[#E63946] hover:border-[#FFFFFF] transition-all">
               <span className="relative z-10 font-mono tracking-wider flex items-center gap-3">
                 EXPLORAR CATÁLOGO
                 <motion.span
@@ -328,7 +328,7 @@ export default function Hero({ productModel = '' }) {
               window.open(url, '_blank')
             }}
           >
-            <div className="relative bg-transparent text-[#E63946] font-bold px-10 py-5 clip-corner-btn border-2 border-[#E63946] hover:bg-[#E63946] hover:text-[#000000] transition-all">
+            <div className="relative bg-transparent text-[#E63946] font-bold px-6 py-3 sm:px-10 sm:py-5 clip-corner-btn border-2 border-[#E63946] hover:bg-[#E63946] hover:text-[#000000] transition-all">
               <span className="relative z-10 font-mono tracking-wider">CONTACTAR</span>
               <motion.div
                 className="absolute inset-0 bg-[#E63946]"

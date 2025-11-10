@@ -108,7 +108,7 @@ export default function About(){
           className="mb-16"
         >
           <div className="relative inline-block">
-            <h2 className="text-5xl md:text-6xl font-bold mb-3 relative">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 relative">
               <span className="relative inline-block">
                 <span style={{ color: '#FFFFFF' }}>QUIÉNES SOMOS</span>
                 {/* Glitch effect */}
@@ -169,7 +169,7 @@ export default function About(){
             onMouseLeave={() => setIsHovered(false)}
           >
             {/* Container con clip-path */}
-            <div 
+              <div 
               className="relative overflow-hidden border-2 transition-all duration-500"
               style={{
                 borderColor: isHovered ? '#E63946' : 'rgba(230, 57, 70, 0.3)',
@@ -179,7 +179,7 @@ export default function About(){
               <img 
                 src={dealerImg} 
                 alt="sneakers" 
-                className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-[220px] sm:h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-110"
               />
               
               {/* Overlay con scan lines */}
@@ -264,7 +264,7 @@ export default function About(){
             </div>
 
             {/* Features grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((feature, idx) => (
                 <motion.div
                   key={idx}

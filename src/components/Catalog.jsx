@@ -179,7 +179,7 @@ export default function Catalog(){
   const [particles, setParticles] = useState([])
 
   useEffect(() => {
-    const newParticles = Array.from({ length: 30 }, (_, i) => ({
+    const newParticles = Array.from({ length: 12 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       delay: Math.random() * 5
@@ -196,7 +196,7 @@ export default function Catalog(){
       {particles.map(p => (
         <motion.div
           key={p.id}
-          className="absolute w-1 h-1 rounded-full"
+          className="hidden sm:block absolute w-1 h-1 rounded-full"
           style={{ 
             left: `${p.x}%`, 
             bottom: -10,
@@ -223,7 +223,7 @@ export default function Catalog(){
           viewport={{ once: true }}
           className="relative inline-block"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-2 relative">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-2 relative">
             <span className="relative inline-block">
               <span style={{ color: '#FFFFFF' }}>CATÁLOGO</span>
               {/* Glitch effect */}
