@@ -16,6 +16,13 @@ export default function Hero({ productModel = '' }) {
   const cursorYSpring = useSpring(cursorY, springConfig)
 
   useEffect(() => {
+    // Only attach mousemove on devices with a fine pointer (mouse/trackpad).
+    // This avoids unnecessary listeners on touch devices and prevents the
+    // custom cursor from trying to track touches.
+    if (typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(pointer: fine)').matches) {
+      return
+    }
+
     const handleMouse = (e) => {
       cursorX.set(e.clientX - 16)
       cursorY.set(e.clientY - 16)
@@ -24,6 +31,7 @@ export default function Hero({ productModel = '' }) {
         y: (e.clientY - window.innerHeight / 2) / 30
       })
     }
+
     window.addEventListener('mousemove', handleMouse)
     return () => window.removeEventListener('mousemove', handleMouse)
   }, [])
@@ -32,7 +40,7 @@ export default function Hero({ productModel = '' }) {
   <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#000000]">
       {/* Custom Cursor */}
       <motion.div
-        className="fixed w-8 h-8 border-2 border-[#E63946] rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-8 h-8 border-2 border-[#E63946] rounded-full pointer-events-none z-50 mix-blend-difference hidden lg:block"
         style={{ x: cursorXSpring, y: cursorYSpring, left: 0, top: 0 }}
       />
 
