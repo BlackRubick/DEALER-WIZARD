@@ -33,7 +33,7 @@ export default function Hero({ productModel = '' }) {
       {/* Custom Cursor */}
       <motion.div
         className="fixed w-8 h-8 border-2 border-[#E63946] rounded-full pointer-events-none z-50 mix-blend-difference"
-        style={{ x: cursorXSpring, y: cursorYSpring }}
+        style={{ x: cursorXSpring, y: cursorYSpring, left: 0, top: 0 }}
       />
 
       {/* Animated Background Lines */}
