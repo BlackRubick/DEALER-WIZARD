@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import dealerImg from '../public/dealerwizard.jpeg'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function About(){
@@ -176,7 +177,7 @@ export default function About(){
               }}
             >
               <img 
-                src="/dealerwizard.jpeg" 
+                src={dealerImg} 
                 alt="sneakers" 
                 className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-110"
               />
