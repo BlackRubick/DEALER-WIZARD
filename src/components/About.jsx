@@ -176,7 +176,7 @@ export default function About(){
               }}
             >
               <img 
-                src="src/public/dealerwizard.jpeg" 
+                src="/dealerwizard.jpeg" 
                 alt="sneakers" 
                 className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-110"
               />
